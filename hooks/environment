@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -euo pipefail
+
+export TEST_ENVIRONMENT_VAR="test"
