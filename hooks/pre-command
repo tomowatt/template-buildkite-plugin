@@ -7,16 +7,16 @@ export TEST_ENVIRONMENT_VAR="test"
 printenv
 
 while IFS='=' read -r name _ ; do
-  if [[ $name =~ ^(BUILDKITE_PLUGIN_TEMPLATE_SET_[0-9]+) ]] ; then
-    args+=( "--add-host" "${!name}" )
+  if [[ $name =~ ^(BUILDKITE_PLUGIN_TEMPLATE_SET_.*_[0-9]+) ]] ; then
+    echo "${!name}"
   fi
 done < <(env | sort)
 
 echo "${BUILDKITE_PLUGIN_TEMPLATE_SET_0}"
 
 while IFS='=' read -r name _ ; do
-  if [[ $name =~ ^(BUILDKITE_PLUGIN_TEMPLATE_ADD_[0-9]+) ]] ; then
-    args+=( "--add-host" "${!name}" )
+  if [[ $name =~ ^(BUILDKITE_PLUGIN_TEMPLATE_ADD_.*_[0-9]+) ]] ; then
+    echo "${!name}"
   fi
 done < <(env | sort)
 
