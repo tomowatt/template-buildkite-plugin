@@ -3,3 +3,19 @@
 set -euo pipefail
 
 export TEST_ENVIRONMENT_VAR="test"
+
+while IFS='=' read -r name _ ; do
+  if [[ $name =~ ^(BUILDKITE_PLUGIN_TEMPLATE_SET_[0-9]+) ]] ; then
+    args+=( "--add-host" "${!name}" )
+  fi
+done < <(env | sort)
+
+echo "${BUILDKITE_PLUGIN_TEMPLATE_SET_0}"
+
+while IFS='=' read -r name _ ; do
+  if [[ $name =~ ^(BUILDKITE_PLUGIN_TEMPLATE_ADD_[0-9]+) ]] ; then
+    args+=( "--add-host" "${!name}" )
+  fi
+done < <(env | sort)
+
+echo "${BUILDKITE_PLUGIN_TEMPLATE_ADD_0}"
