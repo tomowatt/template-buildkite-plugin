@@ -9,6 +9,12 @@ configuration:
       type: string
     optional:
       type: string
+    set:
+      type: array
+      default: []
+    add:
+      type: array
+      default: []
   required:
     - mandatory
   additionalProperties: false
