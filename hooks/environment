@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-export SSH_PRIVATE_RSA_KEY="test"
+export SSH_PRIVATE_RSA_KEY=$SSH_LOCAL
