@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -euo pipefail
+
+export SSH_PRIVATE_RSA_KEY="test"
